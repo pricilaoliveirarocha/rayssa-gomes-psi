@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema de botões — versão Tailwind</title>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#FBF6F3', blush: '#F7E5E4', rose: '#B96C79', deep: '#8E515C', ink: '#3B2A2E'
+          },
+          fontFamily: { ui: ['Jost', 'ui-sans-serif', 'system-ui'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-blush p-8 font-ui text-ink md:p-20">
+  <main class="mx-auto max-w-5xl">
+    <p class="mb-3 text-[13px] tracking-[.04em] text-deep">sistema de ação / versão Tailwind</p>
+    <h1 class="mb-12 font-serif text-5xl font-normal tracking-[-.035em] md:text-7xl">Quatro gestos,<br>uma só voz.</h1>
+
+    <div class="grid gap-px overflow-hidden border border-ink/10 bg-ink/10">
+      <section class="grid gap-7 bg-paper p-8 md:grid-cols-[190px_1fr] md:items-center">
+        <div><h2 class="font-serif text-2xl">Primário</h2><p class="mt-1 text-sm text-ink/60">A ação que inicia o cuidado.</p></div>
+        <div class="flex flex-wrap items-center gap-5">
+          <button class="group relative inline-flex min-h-11 cursor-pointer items-center justify-center gap-2.5 overflow-hidden rounded-[13px_13px_13px_5px] bg-rose px-8 py-4 text-[15px] font-medium tracking-[.01em] text-paper shadow-[0_8px_24px_rgba(180,100,120,.25)] transition-[transform,box-shadow,background-color] duration-300 ease-out hover:-translate-y-0.5 hover:bg-[#A85F6C] hover:shadow-[0_14px_30px_rgba(180,100,120,.32)] active:translate-y-0 active:shadow-[0_5px_14px_rgba(180,100,120,.22)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none">
+            <span>Agendar uma conversa</span>
+            <svg class="h-[17px] w-[17px] fill-none stroke-current stroke-[1.65] transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 12h15m-6-6 6 6-6 6"/></svg>
+            <span class="absolute right-[11px] top-2.5 h-[5px] w-1.5 rotate-[-8deg] rounded-[58%_42%_64%_36%] bg-white/60 transition-[transform,opacity] duration-300 group-hover:translate-x-[-2px] group-hover:translate-y-0.5 group-hover:rotate-[10deg] group-hover:scale-110 group-hover:opacity-90" aria-hidden="true"></span>
+          </button>
+          <button disabled class="group relative inline-flex min-h-11 cursor-pointer items-center justify-center gap-2.5 overflow-hidden rounded-[13px_13px_13px_5px] bg-rose px-8 py-4 text-[15px] font-medium tracking-[.01em] text-paper shadow-[0_8px_24px_rgba(180,100,120,.25)] transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none">Desabilitado</button>
+        </div>
+      </section>
+
+      <section class="grid gap-7 bg-paper p-8 md:grid-cols-[190px_1fr] md:items-center">
+        <div><h2 class="font-serif text-2xl">Secundário</h2><p class="mt-1 text-sm text-ink/60">Convida sem disputar atenção.</p></div>
+        <div class="flex flex-wrap items-center gap-5">
+          <button class="group relative inline-flex min-h-11 cursor-pointer items-center justify-center gap-2.5 bg-transparent px-2 py-4 text-[15px] font-medium tracking-[.01em] text-ink/80 transition-colors duration-300 hover:text-deep active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40">
+            <span>Conhecer meu trabalho</span>
+            <svg class="h-[17px] w-[17px] fill-none stroke-current stroke-[1.65] transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 12h15m-6-6 6 6-6 6"/></svg>
+            <span class="absolute inset-x-2 bottom-2.5 h-px origin-left scale-x-0 bg-current opacity-70 transition-transform duration-300 group-hover:scale-x-100" aria-hidden="true"></span>
+          </button>
+          <button disabled class="inline-flex min-h-11 cursor-not-allowed items-center px-2 py-4 text-[15px] font-medium tracking-[.01em] text-ink/40">Desabilitado</button>
+        </div>
+      </section>
+
+      <section class="grid gap-7 bg-paper p-8 md:grid-cols-[190px_1fr] md:items-center">
+        <div><h2 class="font-serif text-2xl">Ghost</h2><p class="mt-1 text-sm text-ink/60">Navegação e ações terciárias.</p></div>
+        <div class="flex flex-wrap items-center gap-5">
+          <button class="inline-flex min-h-10 cursor-pointer items-center rounded-[10px] bg-transparent px-4 py-2.5 text-[15px] font-medium tracking-[.01em] text-deep transition-colors duration-300 hover:bg-rose/10 active:bg-rose/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40">Sobre mim</button>
+          <button disabled class="inline-flex min-h-10 cursor-not-allowed items-center rounded-[10px] px-4 py-2.5 text-[15px] font-medium tracking-[.01em] text-deep opacity-40">Desabilitado</button>
+        </div>
+      </section>
+
+      <section class="grid gap-7 bg-paper p-8 md:grid-cols-[190px_1fr] md:items-center">
+        <div><h2 class="font-serif text-2xl">Ícone</h2><p class="mt-1 text-sm text-ink/60">Controle tátil e compacto.</p></div>
+        <div class="flex flex-wrap items-center gap-5">
+          <button aria-label="Avançar" class="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-rose/25 bg-paper text-ink transition-colors duration-300 hover:border-rose hover:bg-rose hover:text-paper active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-deep disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40">
+            <svg class="h-[17px] w-[17px] fill-none stroke-current stroke-[1.65]" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 12h15m-6-6 6 6-6 6"/></svg>
+          </button>
+          <button aria-label="Avançar" disabled class="inline-flex h-10 w-10 cursor-not-allowed items-center justify-center rounded-full border border-rose/25 bg-paper text-ink opacity-40"><svg class="h-[17px] w-[17px] fill-none stroke-current stroke-[1.65]" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

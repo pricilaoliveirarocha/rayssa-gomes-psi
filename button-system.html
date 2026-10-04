@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema de botões — Dra. Rayssa Gomes</title>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body { min-height: 100vh; padding: clamp(48px, 8vw, 112px) var(--pad); }
+    .system { width: min(100%, 980px); margin: auto; }
+    .system__intro { max-width: 670px; margin-bottom: 64px; }
+    .system__eyebrow { margin: 0 0 14px; color: var(--rose-deep); font-size: .8rem; letter-spacing: .04em; }
+    .system h1 { font-size: clamp(2.8rem, 7vw, 5.8rem); line-height: .96; }
+    .system__lead { max-width: 52ch; margin-top: 22px; color: var(--muted); }
+    .system__grid { display: grid; gap: 1px; background: rgba(59, 42, 46, .1); border: 1px solid rgba(59, 42, 46, .1); }
+    .sample { display: grid; grid-template-columns: minmax(170px, .65fr) 1.35fr; align-items: center; gap: 30px; min-height: 150px; padding: 32px; background: var(--blush); }
+    .sample h2 { margin: 0 0 5px; font: 400 1.5rem/1.1 var(--font-display); }
+    .sample p { color: var(--muted); font-size: .82rem; }
+    .sample__buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+    .sample__state { display: grid; gap: 6px; justify-items: start; color: var(--muted); font-size: .72rem; }
+    @media (max-width: 680px) { .sample { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="system">
+    <header class="system__intro">
+      <p class="system__eyebrow">sistema de ação / versão CSS</p>
+      <h1>Quatro gestos,<br>uma só voz.</h1>
+      <p class="system__lead">Os controles compartilham tipografia, foco e tempo de transição; a forma e o peso mudam conforme a importância da ação.</p>
+    </header>
+
+    <div class="system__grid">
+      <section class="sample">
+        <div><h2>Primário</h2><p>A ação que inicia o cuidado.</p></div>
+        <div class="sample__buttons">
+          <div class="sample__state"><span>default / interativo</span><a class="button button--primary" href="#"><span>Agendar uma conversa</span><svg class="button__arrow" aria-hidden="true"><use href="#arrow" /></svg></a></div>
+          <div class="sample__state"><span>disabled</span><button class="button button--primary" disabled><span>Agendar uma conversa</span><svg class="button__arrow" aria-hidden="true"><use href="#arrow" /></svg></button></div>
+        </div>
+      </section>
+
+      <section class="sample">
+        <div><h2>Secundário</h2><p>Convida sem disputar atenção.</p></div>
+        <div class="sample__buttons">
+          <div class="sample__state"><span>default / interativo</span><a class="button button--secondary" href="#"><span>Conhecer meu trabalho</span><svg class="button__arrow" aria-hidden="true"><use href="#arrow" /></svg></a></div>
+          <div class="sample__state"><span>disabled</span><button class="button button--secondary" disabled><span>Conhecer meu trabalho</span><svg class="button__arrow" aria-hidden="true"><use href="#arrow" /></svg></button></div>
+        </div>
+      </section>
+
+      <section class="sample">
+        <div><h2>Ghost</h2><p>Navegação e ações terciárias.</p></div>
+        <div class="sample__buttons">
+          <div class="sample__state"><span>default / interativo</span><button class="button button--ghost">Sobre mim</button></div>
+          <div class="sample__state"><span>disabled</span><button class="button button--ghost" disabled>Sobre mim</button></div>
+        </div>
+      </section>
+
+      <section class="sample">
+        <div><h2>Ícone</h2><p>Controle tátil, sem texto visível.</p></div>
+        <div class="sample__buttons">
+          <div class="sample__state"><span>default / interativo</span><button class="button button--icon" aria-label="Avançar"><svg class="button__arrow" aria-hidden="true"><use href="#arrow" /></svg></button></div>
+          <div class="sample__state"><span>disabled</span><button class="button button--icon" aria-label="Avançar" disabled><svg class="button__arrow" aria-hidden="true"><use href="#arrow" /></svg></button></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" /></symbol>
+  </svg>
+</body>
+</html>
