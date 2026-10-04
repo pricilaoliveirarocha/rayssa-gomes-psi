@@ -19,8 +19,7 @@
     const FINE = window.matchMedia('(pointer: fine)').matches;
 
     // Contato centralizado: país + DDD + número, somente dígitos.
-    // Exemplo: '5511999999999'. Vazio abre o WhatsApp sem destinatário definido.
-    const WHATSAPP_PHONE = '';
+    const WHATSAPP_PHONE = '5522999997560';
     const WHATSAPP_MESSAGE = 'Olá, gostaria de saber mais sobre a terapia online.';
 
     const state = { y: window.scrollY, dirty: true, vw: innerWidth, vh: innerHeight };
