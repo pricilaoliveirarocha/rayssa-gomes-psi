@@ -32,6 +32,15 @@
             link.href = url;
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
+            link.addEventListener('click', () => {
+                const section = link.closest('section, header, footer');
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'whatsapp_click',
+                    cta_text: link.textContent.trim().replace(/\s+/g, ' ') || link.getAttribute('aria-label') || 'WhatsApp',
+                    cta_location: section?.id || section?.tagName.toLowerCase() || 'floating_button'
+                });
+            });
         });
     }
 
