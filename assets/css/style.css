@@ -488,6 +488,11 @@ svg[viewBox="0 0 120 120"] use,
     border-bottom-color: var(--line-soft);
 }
 
+.nav:has(.burger.is-open)::after {
+    opacity: 1;
+    border-bottom-color: var(--line-soft);
+}
+
 .nav__inner {
     display: flex;
     align-items: center;
@@ -618,12 +623,12 @@ svg[viewBox="0 0 120 120"] use,
 
 .burger.is-open span:first-child {
     top: 50%;
-    transform: translate(-50%, 0) rotate(45deg);
+    transform: rotate(45deg);
 }
 
 .burger.is-open span:last-child {
     top: 50%;
-    transform: translate(-50%, 0) rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
 /* Menu mobile -------------------------- */
@@ -633,9 +638,13 @@ svg[viewBox="0 0 120 120"] use,
     z-index: 80;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 34px;
-    padding: calc(var(--nav-h) + 30px) var(--pad) 40px;
+    justify-content: flex-start;
+    height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--cream);
+    gap: clamp(20px, 4vh, 34px);
+    padding: calc(var(--nav-h) + 20px) var(--pad) max(28px, env(safe-area-inset-bottom));
     clip-path: circle(0% at calc(100% - 46px) 46px);
     transition: clip-path .9s var(--ease);
     visibility: hidden;
@@ -658,6 +667,7 @@ svg[viewBox="0 0 120 120"] use,
 
 .menu__links {
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     gap: 2px;
 }
@@ -667,7 +677,7 @@ svg[viewBox="0 0 120 120"] use,
     align-items: baseline;
     gap: 16px;
     font-family: var(--font-display);
-    font-size: clamp(1.7rem, 7vw, 2.5rem);
+    font-size: clamp(1.5rem, 5.5vw, 2.1rem);
     padding: .24em 0;
     border-bottom: 1px solid var(--line-soft);
     opacity: 0;
@@ -695,6 +705,7 @@ svg[viewBox="0 0 120 120"] use,
 
 .menu__foot {
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
@@ -1165,13 +1176,14 @@ svg[viewBox="0 0 120 120"] use,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 28%;
-    transform: scale(1.06);
+    object-position: 56% 65%;
+    transform: scale(1.5);
+    transform-origin: 56% 65%;
     transition: transform 1.6s var(--ease);
 }
 
 .hero__photo:hover img {
-    transform: scale(1.11);
+    transform: scale(1.6);
 }
 
 .hero__wash {
@@ -1692,7 +1704,15 @@ svg[viewBox="0 0 120 120"] use,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 22%;
+    object-position: 50% 100%;
+    transform: scale(1.16);
+    transform-origin: 20% 85%;
+    animation: aboutPhotoDrift 7s var(--ease-soft) infinite alternate;
+}
+
+@keyframes aboutPhotoDrift {
+    from { transform: translate3d(0, 0, 0) scale(1.16); }
+    to { transform: translate3d(.5%, -1%, 0) scale(1.16); }
 }
 
 .about__wash {
@@ -2260,6 +2280,30 @@ svg[viewBox="0 0 120 120"] use,
     align-items: center;
 }
 
+.cta__photo {
+    position: absolute;
+    z-index: 0;
+    right: max(var(--pad), calc((100vw - var(--wrap)) / 2 + var(--pad)));
+    bottom: 20px;
+    width: clamp(140px, 16vw, 220px);
+    opacity: .2;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: var(--r-xl) var(--r-xl) var(--r-lg) var(--r-lg);
+    aspect-ratio: 3/4;
+    box-shadow: var(--shadow-l);
+    background: var(--blush);
+}
+
+.cta__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.16);
+    transform-origin: center;
+}
+
 .cta__title {
     font-size: clamp(1.75rem, 3.1vw, 2.85rem);
     line-height: 1.14;
@@ -2360,7 +2404,7 @@ svg[viewBox="0 0 120 120"] use,
     }
 
     .nav__cta {
-        margin-left: 0;
+        display: none;
     }
 
     .care-grid {
@@ -2460,6 +2504,11 @@ svg[viewBox="0 0 120 120"] use,
         grid-template-columns: 1fr;
     }
 
+    .cta__photo {
+        width: 140px;
+        opacity: .12;
+    }
+
     .script--cta {
         position: static;
         text-align: left;
@@ -2485,6 +2534,10 @@ svg[viewBox="0 0 120 120"] use,
 @media (max-width:720px) {
     :root {
         --nav-h: 72px;
+    }
+
+    .nav__cta {
+        display: none;
     }
 
     .script--hero-right {
@@ -2623,6 +2676,10 @@ svg[viewBox="0 0 120 120"] use,
 
 /* ---------- 6. MOVIMENTO REDUZIDO ---------- */
 @media (prefers-reduced-motion:reduce) {
+    .about__photo img {
+        animation: none !important;
+    }
+
     html {
         scroll-behavior: auto;
     }
