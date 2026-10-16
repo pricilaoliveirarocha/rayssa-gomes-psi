@@ -1,6 +1,6 @@
 <div align="center">
 
-# Rayssa Gomes ✿
+# Rayssa Gomes
 
 **Psicologia, acolhimento e presença digital.** 🌷
 
